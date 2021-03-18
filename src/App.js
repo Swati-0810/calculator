@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React from 'react';
+import Keypad from './Components/Keypad';
+import Screen from './Components/Screen';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    state = {
+        result : ""
+    }
+    buttonClicked = (buttonName) => {
+        if(buttonName === '='){
+            this.calculate();
+        } else
+            this.setState({
+            result: this.state.result + buttonName
+            });
+    }
+    calculate = () => {
+        this.setState({
+            result : eval(this.state.result)
+        });
+    };
+    render() {
+    return (
+        <div className="App">
+            <h2> Calculator </h2>
+            <Screen result={this.state.result}/>
+            <Keypad buttonClicked={this.buttonClicked} />
+            
+        </div>
+    );
+    }
 }
-
 export default App;
