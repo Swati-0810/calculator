@@ -27,6 +27,11 @@ export default class Keypad extends Component {
                 <button name='8' onClick={this.buttonClicked}>8</button>
                 <button name='9' onClick={this.buttonClicked}>9</button>
                 <button name='*' onClick={this.buttonClicked}>*</button> 
+                <br></br>
+                <button name='(' onClick={this.buttonClicked}>(</button>
+                <button name=')' onClick={this.buttonClicked}>)</button>
+                <button name='C' onClick={this.buttonClicked}>C</button>
+                <button name='R' onClick={this.buttonClicked}>R</button>
             </div>
 
         )
